@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
-public class SoundOnCollision : MonoBehaviour
+public class SoundOnAnimationEvent : MonoBehaviour
 {
+
 
     public List<AudioClip> clips = new List<AudioClip>();
 
@@ -12,7 +14,6 @@ public class SoundOnCollision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(clips.Count);
         source = GetComponent<AudioSource>();
     }
 
@@ -22,15 +23,14 @@ public class SoundOnCollision : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void AnimationEvent(string s)
     {
-        //Debug.Log("Collision");
- 
+        //Debug.Log("PrintEvent called at " + Time.time + " with a value of " + s);
+
+        if (s == "MonParam")
+        {
             int randomClipIndex = Random.Range(0, clips.Count);
             source.PlayOneShot(clips[randomClipIndex]);
-
-        
-     
- 
+        }
     }
 }

@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MonTag
-  - MonTagAutre
+  - TagA
+  - TagB
   layers:
   - Default
   - TransparentFX
